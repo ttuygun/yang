@@ -218,40 +218,6 @@ describe("options without config", () => {
       geti18nMessage("optionsMessageMissingConfig")
     );
   });
-
-  /* ------------------------------------------------------------------------ */
-
-  test("save credentials with wrong email", async () => {
-    render(<Options />);
-
-    // Get components from DOM
-    const endpoint = screen
-      .getByTestId("input-endpoint")
-      .querySelector("input");
-    const email = screen.getByTestId("input-email").querySelector("input");
-    const password = screen
-      .getByTestId("input-password")
-      .querySelector("input");
-
-    // Simulate a click on "credentials" accordion
-    userEvent.click(screen.getByTestId("credentials"));
-
-    // Simulate a user event typing endpoing, wrong email address and HTTP password
-    userEvent.type(endpoint, "https://hereweare.testing.it");
-    userEvent.type(email, "baby.shark");
-    userEvent.type(password, "dododo");
-
-    // Simulate a click on "credentials" accordion
-    userEvent.click(screen.getByLabelText("save-config"));
-
-    // Wait until snackbar appears with some status message
-    await waitFor(() => screen.getByLabelText("snackbar"));
-
-    // Check status message
-    expect(screen.getByLabelText("snackbar")).toHaveTextContent(
-      geti18nMessage("optionsMessageInvalidEmail")
-    );
-  });
 });
 
 /* -------------------------------------------------------------------------- */

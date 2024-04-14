@@ -13,9 +13,7 @@ const gerrit = {
     try {
       data = await axios
         .get(
-          url,
-          {},
-          {
+          url, {
             auth: {
               username: options.credentials.email,
               password: options.credentials.password,
@@ -50,9 +48,7 @@ const gerrit = {
     try {
       result = await axios
         .get(
-          url,
-          {},
-          {
+          url, {
             auth: {
               username: credentials.email,
               password: credentials.password,

@@ -123,9 +123,7 @@ export function mockPopupState(opened) {
 export function mockResolvedAxiosGetOnce(url, options, result) {
   when(axios.get)
     .calledWith(
-      url,
-      {},
-      {
+      url, {
         auth: {
           username: options.credentials.email,
           password: options.credentials.password,
@@ -138,9 +136,7 @@ export function mockResolvedAxiosGetOnce(url, options, result) {
 export function mockRejectedAxiosGetOnce(url, options, result) {
   when(axios.get)
     .calledWith(
-      url,
-      {},
-      {
+      url, {
         auth: {
           username: options.credentials.email,
           password: options.credentials.password,

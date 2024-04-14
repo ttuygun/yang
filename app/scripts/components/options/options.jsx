@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import { isEmpty } from "lodash";
-import { isEmail } from "validator";
 
 import Grid from "@material-ui/core/Grid";
 
@@ -52,8 +51,6 @@ function Options() {
     let dummy = "";
     if (endpoint == "") {
       dummy = browser.i18n.getMessage("optionsMessageMissingConfig");
-    } else if (!isEmail(credentials.email)) {
-      dummy = browser.i18n.getMessage("optionsMessageInvalidEmail");
     } else {
       // Save new config in storage
       const data = { refreshTime, endpoint, credentials };
